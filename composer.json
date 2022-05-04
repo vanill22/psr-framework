@@ -8,7 +8,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Framewokr\\": "src/Framework"
+      "Framework\\": "src/Framework/",
+      "Tests\\": "tests/"
     }
   },
   "require-dev": {

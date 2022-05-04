@@ -14,8 +14,4 @@ class Request
         return $_POST ?: null;
     }
 
-    public function getBody()
-    {
-        return file_get_contents('php://input');
-    }
 }
