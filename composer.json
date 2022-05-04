@@ -1,0 +1,17 @@
+{
+  "config": {
+    "sort-packages": true
+  },
+  "require": {
+    "php": ">=8.0",
+    "roave/security-advisories": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Framewokr\\": "src/Framework"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  }
+}
