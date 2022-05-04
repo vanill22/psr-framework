@@ -9,40 +9,31 @@ class RequestTest extends TestCase
 {
     public function testEmpty(): void
     {
-        $_GET = [];
-        $_POST = [];
         $request = new Request();
 
         self::assertEquals([], $request->getQueryParams());
-        self::assertNull($request->getParserBody());
+        self::assertNull($request->getParsedBody());
     }
 
-//    public function testQueryParams(): void
-//    {
-//        $_GET = $data = [
-//            'name' => 'Popka',
-//            'age' => '101'
-//        ];
-//
-//        $_POST = [];
-//
-//        $request = new Request();
-//
-//        self::assertEquals($data, $request->getQueryParams());
-//        self::assertNull($request->getParserBody());
-//
-//    }
-//
-//    public function testParserBody(): void
-//    {
-//        $_GET = [];
-//        $_POST = $data = ['title' => 'Title'];
-//
-//        $request = new Request();
-//
-//        self::assertEquals([], $request->getQueryParams());
-//        self::assertEquals($data, $request->getParserBody());
-//
-//
-//    }
+    public function testQueryParams(): void
+    {
+
+        $request = (new Request())
+            ->withQueryParams($data = [
+            'name' => 'Popka',
+            'age' => '101'
+        ]);
+
+        self::assertEquals($data, $request->getQueryParams());
+        self::assertNull($request->getParsedBody());
+
+    }
+
+    public function testParserBody(): void
+    {
+        $request = new Request([], $data = ['title' => 'Title']);
+
+        self::assertEquals([], $request->getQueryParams());
+        self::assertEquals($data, $request->getParsedBody());
+    }
 }
