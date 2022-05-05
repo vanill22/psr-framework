@@ -2,9 +2,13 @@
 
 namespace Framework\Http;
 
-class Request
+use Framework\Http\ServerRequestInterface;
+use Psr\Http\Message\StreamInterface;
+use Psr\Http\Message\UriInterface;
+
+class Request implements ServerRequestInterface
 {
-    private array $queryParams = [];
+    private array $queryParams;
     private mixed $parsedBody;
 
     public function __construct(array $queryParams = [], $parsedBody = null)
@@ -31,7 +35,7 @@ class Request
         return $this->parsedBody;
     }
 
-    public function withParserBody($data): self
+    public function withParsedBody($data): self
     {
         $this->parsedBody = $data;
         return $this;

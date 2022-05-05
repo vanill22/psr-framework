@@ -2,7 +2,10 @@
 
 namespace Framework\Http;
 
-class Response
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamInterface;
+
+class Response implements ResponseInterface
 {
     private $headers = [];
     private $body;
@@ -83,5 +86,30 @@ class Response
         }
         $new->headers[$header] = $value;
         return $new;
+    }
+
+    public function getProtocolVersion()
+    {
+        // TODO: Implement getProtocolVersion() method.
+    }
+
+    public function withProtocolVersion($version)
+    {
+        // TODO: Implement withProtocolVersion() method.
+    }
+
+    public function getHeaderLine($name)
+    {
+        // TODO: Implement getHeaderLine() method.
+    }
+
+    public function withAddedHeader($name, $value)
+    {
+        // TODO: Implement withAddedHeader() method.
+    }
+
+    public function withoutHeader($name)
+    {
+        // TODO: Implement withoutHeader() method.
     }
 }
